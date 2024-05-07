@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: youtube-miner-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: youtube-miner
+  template:
+    metadata:
+      labels:
+        app: youtube-miner
+    spec:
+      containers:
+        - name: youtube-miner-container
+          image: gcr.io/youtubeminer-422611/youtube-miner
+          ports:
+            - containerPort: 8082

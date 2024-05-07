@@ -1,0 +1,10 @@
+runtime: java17
+
+service: default  # Replace with your desired service name
+
+env: flexible  # standard or flexible environment (consult App Engine documentation)
+
+# Optional: Specify handlers for specific URL patterns
+handlers:
+  - url: /.*
+    script: YoutubeMinerApplication  # Replace with the name of your Spring Boot application class
