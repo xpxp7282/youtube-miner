@@ -60,9 +60,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>3.2.5</version>
-				<configuration>
-					<mainClass>com.youtubeMiner.youtubeMiner.YoutubeMinerApplication</mainClass>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
