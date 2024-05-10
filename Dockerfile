@@ -1,14 +1,20 @@
-# Use an OpenJDK base image for Java 17.0.11 from Amazon Corretto
-FROM amazoncorretto:17.0.11-alpine
+# Copyright 2024 (replace with your name/year)
+#
+# (Add your license information here if applicable)
 
-# Set the working directory inside the container
+# Stage 1: Build the Spring Boot application
+FROM maven:3.8.5-openjdk-17 AS builder
 WORKDIR /app
+COPY pom.xml ./
+RUN mvn clean package
 
-# Copy the packaged Spring Boot application JAR file into the container
-COPY target/youtubeMiner-0.0.1-SNAPSHOT.jar /app/youtubeMiner-0.0.1-SNAPSHOT.jar
+# Stage 2: Create the final image
+FROM openjdk:17-slim
+WORKDIR /app
+COPY --from=builder /app/target/*.jar app.jar
 
-# Expose the port that your Spring Boot application runs on
+# Expose the port your Spring Boot application runs on (replace with your actual port)
 EXPOSE 8082
 
 # Define the command to run your application when the container starts
-CMD ["java", "-jar", "youtubeMiner-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "app.jar"]

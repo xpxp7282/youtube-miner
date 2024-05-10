@@ -6,14 +6,14 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: youtube-miner
+      app: youtube-miner-deployment
   template:
     metadata:
       labels:
-        app: youtube-miner
+        app: youtube-miner-deployment
     spec:
       containers:
         - name: youtube-miner-container
-          image: gcr.io/youtubeminer-422611/youtube-miner
+          image: gcr.io/youtubeminer-422611/app-youtube-miner
           ports:
             - containerPort: 8082
