@@ -1,15 +1,9 @@
-# Copyright 2024 (replace with your name/year)
-#
-# (Add your license information here if applicable)
-
 # Stage 1: Build the Spring Boot application
 FROM maven:3.8.5-openjdk-17 AS builder
 WORKDIR /app
 COPY pom.xml ./
 RUN mvn clean validate compile
 RUN mvn package
-RUN mvn verify
-RUN mvn install
 
 # Stage 2: Create the final image
 FROM openjdk:17-slim
