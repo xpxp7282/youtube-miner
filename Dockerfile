@@ -6,8 +6,7 @@
 FROM maven:3.8.5-openjdk-17 AS builder
 WORKDIR /app
 COPY pom.xml ./
-RUN mvn clean
-RUN mvn install -X
+RUN mvn clean validate compile package verify install
 
 # Stage 2: Create the final image
 FROM openjdk:17-slim
