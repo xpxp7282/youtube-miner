@@ -3,7 +3,7 @@
 # (Add your license information here if applicable)
 
 # Stage 1: Build the Spring Boot application
-FROM maven:3.9.5-openjdk-17 AS builder
+FROM maven:3.8.5-openjdk-17 AS builder
 WORKDIR /app
 COPY pom.xml ./
 RUN mvn clean package
