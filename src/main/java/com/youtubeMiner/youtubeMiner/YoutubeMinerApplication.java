@@ -10,7 +10,13 @@ import org.springframework.web.client.RestTemplate;
 public class YoutubeMinerApplication {
 
 	public static void main(String[] args) {
+		//if the application start successfully priint a message
+
 		SpringApplication.run(YoutubeMinerApplication.class, args);
+		if(args.length == 0) {
+			System.out.println("Application started successfully");
+
+		}
 	}
 
 	@Bean
